@@ -14,16 +14,15 @@ iRODS  | No  | Yes | Yes |
 Tool/Service | Snakemake | Nextflow | Makeflow | Notes
 :----- | :----: | -----: | -----: | -----:
 Language   | Python | Groovy | ? | 
-Language   | Python | Groovy | ? | 
+DAG order   | builds its DAG backwards from a final set of required output files | starts with input files and builds a DAG upwards |  | 
+   |  |  |  | 
+   |  |  |  | 
+
 
 Conda  | Yes  | Yes | Yes | 
 Conda  | Yes  | Yes | Yes | 
 Conda  | Yes  | Yes | Yes | 
 
-Snakemake builds its DAG backwards from a final set of required output files
-Nextflow starts with input files and builds a DAG upwards. 
-Nextflow is Groovy
-Snakemake is Python.
 
 Subjectively, I find it much more pleasing to use Snakemake. Having a dry-run option (an ability to check which files will be affected by the run without actually triggering pipeline), no need to call publishDir every time, the fact that Nextflow does not 'resume' by default, recalculating the whole pipeline if you forgot to use the flag in the command line (google Nextflow resume - there is a bunch of blog posts demystifying a and troubleshooting a feature which you shouldn't even think about), Python vs Groovy (an important difference, because for complex pipelines you will have to implement some of the workflow logic in the available language) and declarative vs imperative style of thinking are the key criteria for me.
 
